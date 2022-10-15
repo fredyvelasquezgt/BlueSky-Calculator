@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluesky</title>
+    <!-- CSS only - Aqui llamo a bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="p-3 mb-2 bg-light text-dark">
+      <h1 class="display-6 text-center">Calculadora</h1>
+      <hr />
+
+      <form name="input_form" action="javascript:validate();">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Datos usuario</th>
+              <th scope="col">Tarifa normal</th>
+              <th scope="col">Valor individual (Q)</th>
+              <th scope="col">Tarifa Bluesky</th>
+              <th scope="col">Valor individual (Q)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Cargo fijo</th>
+              <td>
+                <input
+                  type="text"
+                  name="aterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td>14.16</td>
+              <td id="salida_text" />
+              <td>
+                <input
+                  type="text"
+                  name="dterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="gterm"
+                  required
+                  placeholder="Ingrese un valor "
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">KWH</th>
+              <td>
+                <input
+                  type="text"
+                  name="bterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td>1.558728</td>
+              <td id="salida_text5" />
+              <td>
+                <input
+                  type="text"
+                  name="eterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td id="salida_text8" />
+            </tr>
+            <tr>
+              <th scope="row">Alumbrado publico</th>
+              <td>
+                <input
+                  type="text"
+                  name="cterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td>0.09</td>
+              <td id="salida_text6" />
+              <td>
+                <input
+                  type="text"
+                  name="fterm"
+                  required
+                  placeholder="Ingrese un valor"
+                />
+              </td>
+              <td id="salida_text9" />
+            </tr>
+          </tbody>
+        </table>
+
+        <input class="btn btn-primary" type="submit" value="Calcular" />
+
+        <p id="salida_text8" />
+
+        <h1 class="display-6 text-center">Resultados</h1>
+        <hr />
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Valor individual (Q)</th>
+              <th scope="col">Valor individual (Q)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Total factura</th>
+              <td id="salida_text10" />
+              <td id="salida_text11" />
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Quetzales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Ahorro por mes</th>
+              <td id="salida_text12" />
+            </tr>
+            <tr>
+              <th scope="row">Ahorro por año</th>
+              <td id="salida_text13" />
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <script>
+      //inicia javascript
+      //funcion para hacer que me salga el resultado
+      function validate() {
+        //Las variables almacenan los datos que ingresa el usuario
+        a = document.forms["input_form"]["aterm"].value; //celda a
+        b = document.forms["input_form"]["bterm"].value; //celda b
+        c = document.forms["input_form"]["cterm"].value; //celda c
+        d = document.forms["input_form"]["dterm"].value; //celda a
+        e = document.forms["input_form"]["eterm"].value; //celda b
+        f = document.forms["input_form"]["fterm"].value; //celda c
+        g = document.forms["input_form"]["gterm"].value; //celda c
+
+        //Validaciones para numeros para ver que si sean numero
+        if (a == 0) {
+          outputText = "<em>a</em> no puede ser cero";
+        } else if (isNaN(a)) {
+          outputText = "<em>a</em> debe de ser un numero";
+        } else if (isNaN(b)) {
+          outputText = "<em>b</em> debe de ser un numero";
+        } else if (isNaN(c)) {
+          outputText = "<em>c</em> debe de ser un numero";
+        } else if (isNaN(d)) {
+          outputText = "<em>d</em> debe de ser un numero";
+        } else if (isNaN(e)) {
+          outputText = "<em>e</em> debe de ser un numero";
+        } else if (isNaN(f)) {
+          outputText = "<em>f</em> debe de ser un numero";
+        } else if (isNaN(g)) {
+          outputText = "<em>g</em> debe de ser un numero";
+        } else {
+          //hacer matematicas
+          //declaro dos variables x
+          //lo meto en la ecuacion cuadratica
+
+          var s4 = a * 14.16;
+          var s5 = b * 1.558728;
+          var s6 = c * 0.09;
+          var s8 = 0.75 * b;
+          var s9 = 0 * c;
+          var s10 = s4 + s5 + s6;
+          var s11 = parseFloat(g) + s8 + s9;
+          var s12 = s10 - s11;
+          var s13 = s12 * 12;
+
+          //mostrar resultado al usuario
+          outputText = s4;
+          outputText5 = s5;
+          outputText6 = s6;
+          outputText8 = s8;
+          outputText9 = s9;
+          outputText10 = s10;
+          outputText11 = s11;
+          outputText12 = s12;
+          outputText13 = s13;
+        }
+
+        document.getElementById("salida_text").innerHTML = outputText; //aqui sale el resultado
+        document.getElementById("salida_text5").innerHTML = outputText5; //aqui sale el resultado
+        document.getElementById("salida_text6").innerHTML = outputText6; //aqui sale el resultado
+        document.getElementById("salida_text8").innerHTML = outputText8; //aqui sale el resultado
+        document.getElementById("salida_text9").innerHTML = outputText9; //aqui sale el resultado
+        document.getElementById("salida_text10").innerHTML = outputText10; //aqui sale el resultado
+        document.getElementById("salida_text11").innerHTML = outputText11; //aqui sale el resultado
+        document.getElementById("salida_text12").innerHTML = outputText12; //aqui sale el resultado
+        document.getElementById("salida_text13").innerHTML = outputText13; //aqui sale el resultado
+      }
+    </script>
+  </body>
+</html>
